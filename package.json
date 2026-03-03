@@ -1,0 +1,20 @@
+{
+  "name": "github-portfolio-project-week",
+  "version": "1.0.0",
+  "description": "Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "sync" : "browser-sync start --server --files \"css/*.css\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch static/scss:static/css --style compressed"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "sass": "^1.92.1"
+  }
+}
