@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch static/scss:static/css --style compressed",
     "build:dev": "npx webpack --mode development",
-    "build:watch": "webpack --mode development --watch"
+    "build:watch": "webpack --mode development --watch",
+    "build": "npx webpack --mode production"
   },
   "author": "",
   "license": "ISC",
