@@ -1,6 +1,7 @@
 @use 'helpers/mixin' as *;
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 * {
     box-sizing: border-box;
@@ -18,7 +19,7 @@ body {
     height: 100%;
     
     .menu-meta {
-        margin: 2rem auto;
+        margin: 6rem auto;
         width: 100%;
         
         @media screen and (min-width: $breakpoints-md) {
@@ -34,7 +35,8 @@ body {
     .menu-columns {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1.6rem;
+        //gap: 1.6rem;
+        margin-bottom: 1.6rem;
      
         @media screen and (min-width: $breakpoints-xs) {
             grid-template-columns: 1fr 1fr;
@@ -86,6 +88,10 @@ body {
                             gap: .5rem;
                             flex-direction: row;
                             align-items: center;
+                            
+                            &:has(.meal-description:not(:empty)){
+                                align-items: start;
+                            }
                         }
                         
                       
@@ -93,6 +99,17 @@ body {
                             .meal-description {
                                 font-size: 1.4rem;
                             }
+                        }
+                        
+                        .prices {
+                            display:  flex;
+                            flex-direction: row;
+                            gap: 1.5rem;
+                            
+                            //@container meals (min-width: 280px) {
+                            //    padding: 1rem;
+                            //    flex-direction: column;
+                            //}
                         }
                         
                         .price {
@@ -113,7 +130,7 @@ body {
                                 padding: 1rem;
                                 .amount,
                                 .currency {
-                                    font-size: 1.6rem;
+                                    font-size: 1.4rem;
                                 }
                             }
                         }
