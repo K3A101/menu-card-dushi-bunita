@@ -88,12 +88,28 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((meals) => {
                 const groupedMeals = groupByCategory(meals);
                 displayData(groupedMeals);
+                const elem = document.querySelector('.menu-columns');
+                let msnry = new Masonry( elem, {
+                    // options
+                    itemSelector: '.column',
+                    columnWidth: '.column', // Match this to your CSS width
+                    gutter: 16,
+                    percentPosition: true,
+                    // horizontalOrder: true
+                });
+
             })
             .catch((error) => {
                 console.error('Error fetching menu data:', error);
             });
     }
 
+
+
     fetchData();
+
+    window.addEventListener('resize', function() {
+        msnry.layout();
+    });
 
 })
