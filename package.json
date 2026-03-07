@@ -10,10 +10,9 @@
         "scss": "sass --watch static/scss:static/css --style compressed",
         "build:dev": "npx webpack --mode development",
         "build:watch": "webpack --mode development --watch",
-        "build": "npx webpack --mode production",
+        "build": "webpack --config ./webpack.config.js",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist"
-
     },
     "author": "",
     "license": "ISC",
@@ -26,6 +25,7 @@
     "devDependencies": {
         "browser-sync": "^3.0.4",
         "gh-pages": "^6.3.0",
+        "html-webpack-plugin": "^5.6.6",
         "sass": "^1.92.1",
         "webpack": "^5.105.4",
         "webpack-cli": "^6.0.1"

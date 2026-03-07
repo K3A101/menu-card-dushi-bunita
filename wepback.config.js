@@ -1,5 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 // In Node.js versions prior to native support for import.meta.dirname,
 // derive __dirname from import.meta.url.
@@ -16,4 +17,9 @@ export default {
         publicPath: './',
         clean: true,
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html', // Point this to your SOURCE index.html
+        }),
+    ],
 };
