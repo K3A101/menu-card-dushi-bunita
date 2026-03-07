@@ -13,7 +13,7 @@ export default {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist/js"),
-        publicPath: "auto",
+        publicPath: './',
         clean: true,
     },
 };

@@ -96,15 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchData();
 
-    let gridContainer = document.querySelector('.menu-columns');
-    let msnry = new Masonry( gridContainer, {
-        // options
-        itemSelector: '.column',
-        columnWidth: 'column',
-        percentPosition: true,
-        gutter: 16,
-        horizontalOrder: true,
-        transitionDuration: '0.8s'
-    });
-
 })

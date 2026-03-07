@@ -1,28 +1,33 @@
 {
-  "name": "github-portfolio-project-week",
-  "version": "1.0.0",
-  "description": "Portfolio",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "sync": "browser-sync start --server --files \"css/*.css\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "sass --watch static/scss:static/css --style compressed",
-    "build:dev": "npx webpack --mode development",
-    "build:watch": "webpack --mode development --watch",
-    "build": "npx webpack --mode production"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
-    "lodash": "^4.17.23",
-    "masonry-layout": "^4.2.2"
-  },
-  "devDependencies": {
-    "sass": "^1.92.1",
-    "webpack": "^5.105.4",
-    "webpack-cli": "^6.0.1"
-  }
+    "name": "dushi bunita menu",
+    "version": "1.0.0",
+    "description": "Portfolio",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "sync": "browser-sync start --server --files \"css/*.css\"",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "scss": "sass --watch static/scss:static/css --style compressed",
+        "build:dev": "npx webpack --mode development",
+        "build:watch": "webpack --mode development --watch",
+        "build": "npx webpack --mode production",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
+
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "lodash": "^4.17.23",
+        "masonry-layout": "^4.2.2"
+    },
+    "devDependencies": {
+        "browser-sync": "^3.0.4",
+        "gh-pages": "^6.3.0",
+        "sass": "^1.92.1",
+        "webpack": "^5.105.4",
+        "webpack-cli": "^6.0.1"
+    }
 }
