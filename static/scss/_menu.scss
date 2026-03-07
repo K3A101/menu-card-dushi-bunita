@@ -1,0 +1,211 @@
+@use 'helpers/mixin' as *;
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--font), sans-serif;
+    min-height: 100vh;
+}
+
+#menu {
+    height: 100%;
+    
+    .menu-meta {
+        margin: 6rem auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        @media screen and (min-width: $breakpoints-md) {
+            width: 50%;
+        }
+        
+        & > * {
+            text-align: center;
+            width: 100%;
+
+            @media screen and (min-width: $breakpoints-md) {
+                width: 30rem;
+            }
+        }
+        
+    }
+    
+    .menu-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+        margin-bottom: 1.6rem;
+     
+        @media screen and (min-width: $breakpoints-xs) {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @media screen and (min-width: $breakpoints-md) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        
+        //@media screen and (min-width: $breakpoints-lg) {
+        //    grid-template-columns: 1fr 1fr 1fr 1fr;
+        //}
+        
+        
+    
+        .column {
+            padding: 1.6rem;
+            border-radius: .5rem;
+            container-type: inline-size;
+            container-name: meals;
+            background: var(--background-light);
+            
+            &[style*="--alt: 1"] {
+                background: var(--background-alt);
+            }
+            .meal-category {
+                color: var(--text-light);
+                background:  var(--background-dark);
+                padding: 1rem 2rem;
+                border-radius: .5rem;
+                margin-block: 1.5rem;
+                position: relative;
+            }
+            
+            .meals-wrapper {
+                .meals {
+                    display: flex;
+                    flex-direction:  column;
+                    gap: 1.6rem;
+                    
+                    .meal {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: start;
+                        gap: 1.6rem;
+                        
+                        @container meals (min-width: 280px) {
+                            gap: .5rem;
+                            flex-direction: row;
+                            align-items: center;
+                            
+                            &:has(.meal-description:not(:empty)){
+                                align-items: start;
+                            }
+                        }
+                        
+                      
+                        .content {
+                            .meal-description {
+                                font-size: 1.4rem;
+                            }
+                        }
+                        
+                        .prices {
+                            display:  flex;
+                            flex-direction: row;
+                            gap: 1.5rem;
+                            
+                            //@container meals (min-width: 280px) {
+                            //    padding: 1rem;
+                            //    flex-direction: column;
+                            //}
+                        }
+                        
+                        .price {
+                            display: flex;
+                            flex-direction: row;
+                            gap: .5rem;
+                            background: black;
+                            color: white;
+                            border-radius: .5rem;
+                            padding: .5rem;
+                            font-size: 1.2rem;
+                            
+                            @container meals (min-width: 280px) {
+                                padding: 1rem;
+                            }
+                            
+                            @container meals (min-width: 315px) {
+                                padding: 1rem;
+                                .amount,
+                                .currency {
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:has(#order) {
+                position: static !important;
+            }
+        }
+    }
+    
+    .menu-navigation {
+        display: grid;
+        place-items: center;
+        padding-block: 2rem;
+        container-name: link;
+        container-type: inline-size;
+        
+        @media screen and (min-width: $breakpoints-sm) {
+            display: none;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 1.6rem;
+            list-style: none;
+            align-items: center;
+            
+            li {
+                width: 100%;
+                height: fit-content;
+                
+                a {
+                    padding: .5rem;
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background: var(--background-alt);
+                    border-radius: .5rem;
+                    box-shadow: .5rem .5rem var(--background);
+                    transition: all ease-in-out .3s;
+                    text-decoration: none;
+                    
+                    
+                    i {
+                        svg {
+                            block-size: 2rem;
+                            
+                            @container link (max-width: 370px) {
+                                block-size: 3rem;
+                            }
+                        }
+                      
+                    }
+                    
+                    span {
+                        display: block;
+                        @container link (max-width: 370px) {
+                           display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
