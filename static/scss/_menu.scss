@@ -17,6 +17,7 @@ body {
 
 #menu {
     height: 100%;
+
     
     .menu-meta {
         margin: 6rem auto;
@@ -42,31 +43,39 @@ body {
     }
     
     .menu-columns {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.6rem;
-        margin-bottom: 1.6rem;
-     
-        @media screen and (min-width: $breakpoints-xs) {
-            grid-template-columns: 1fr 1fr;
-        }
-        
-        @media screen and (min-width: $breakpoints-md) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-        
-        //@media screen and (min-width: $breakpoints-lg) {
-        //    grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 100%;
+        max-width: 100%;
+        //display: grid;
+        //grid-template-columns: 1fr;
+        //gap: 1.6rem;
+        //margin-bottom: 1.6rem;
+        ////grid-template-rows: masonry;
+        //
+        //@media screen and (min-width: $breakpoints-xs) {
+        //    grid-template-columns: 1fr 1fr;
         //}
+        //
+        //@media screen and (min-width: $breakpoints-md) {
+        //    grid-template-columns: 1fr 1fr 1fr;
+        //}
+        //
+        ////@media screen and (min-width: $breakpoints-lg) {
+        ////    grid-template-columns: 1fr 1fr 1fr 1fr;
+        ////}
         
         
     
         .column {
+            width: 100%;
             padding: 1.6rem;
             border-radius: .5rem;
-            container-type: inline-size;
-            container-name: meals;
             background: var(--background-light);
+            margin-bottom: 1.6rem;
+
+            @media screen and (min-width: 992px) {
+                //max-width: 450px;
+                width: 30%;
+            }
             
             &[style*="--alt: 1"] {
                 background: var(--background-alt);
@@ -82,6 +91,8 @@ body {
             
             .meals-wrapper {
                 .meals {
+                    container-type: inline-size;
+                    container-name: meals;
                     display: flex;
                     flex-direction:  column;
                     gap: 1.6rem;
@@ -147,9 +158,9 @@ body {
                 }
             }
 
-            &:has(#order) {
-                position: static !important;
-            }
+            //&:has(#order) {
+            //    position: static !important;
+            //}
         }
     }
     
