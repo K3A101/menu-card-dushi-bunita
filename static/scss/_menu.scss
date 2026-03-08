@@ -13,6 +13,8 @@ body {
     font-size: 1.6rem;
     font-family: var(--font), sans-serif;
     min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
 }
 
 #menu {
@@ -60,21 +62,23 @@ body {
             border-radius: .5rem;
             background: var(--background-light);
             margin-bottom: 1.6rem;
+            border: .1rem solid var(--background-dark);
 
             @media screen and (min-width: 992px) {
               width:550px;
             }
             
             &[style*="--alt: 1"] {
-                background: var(--background-alt);
+                //background: var(--background-alt);
             }
             .meal-category {
                 color: var(--text-light);
-                background:  var(--background-dark);
+                background:  var(--primary);
                 padding: 1rem 2rem;
                 border-radius: .5rem;
                 margin-block: 1.5rem;
                 position: relative;
+                border-bottom: 1rem solid var(--line);
             }
             
             .meals-wrapper {
@@ -101,7 +105,17 @@ body {
                                 align-items: start;
                             }
                         }
-                        
+
+                        &.not-available {
+                            opacity: .5;
+                            position: relative;
+
+                            .meal-title,
+                            .meal-description {
+                                text-decoration: line-through;
+                                text-decoration-thickness: .2rem;
+                            }
+                        }
                       
                         .content {
                             .meal-description {
@@ -113,18 +127,13 @@ body {
                             display:  flex;
                             flex-direction: row;
                             gap: 1.5rem;
-                            
-                            //@container meals (min-width: 280px) {
-                            //    padding: 1rem;
-                            //    flex-direction: column;
-                            //}
                         }
                         
                         .price {
                             display: flex;
                             flex-direction: row;
                             gap: .5rem;
-                            background: black;
+                            background: var(--background-dark);
                             color: white;
                             border-radius: .5rem;
                             padding: .5rem;
