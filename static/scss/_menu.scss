@@ -162,15 +162,13 @@ body {
     }
     
     .menu-navigation {
-        display: grid;
+        display: none;
         place-items: center;
         padding-block: 2rem;
         container-name: link;
         container-type: inline-size;
         
-        @media screen and (min-width: $breakpoints-sm) {
-            display: none;
-        }
+        //
         ul {
             display: flex;
             flex-direction: row;
