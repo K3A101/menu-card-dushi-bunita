@@ -4,9 +4,8 @@ const DYNAMIC_CACHE_NAME ='dynamic-cache-v2';
 const CORE_ASSETS = [
     '/',
     '/offline',
-    'static/css/style.css',
-    'https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap',
-    'dist/main.js',
+    '/static/css/style.css',
+    '/dist/main.js',
 ];
 
 // install service worker
