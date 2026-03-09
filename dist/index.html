@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="manifest" href="./manifest.json">
     <title>Menu</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <section id="menu">
         <header class="menu-meta">
             <h1 class="main-title">Menu Dushi Bunita</h1>
-            <p class="menu-description">Hasi bo pedido via di number di telefon: +5999 5208561. I tuma bo pedido na Vèlt Willembrodus.</p>
+            <p class="menu-description">Bon bini!. Akibou tin nos kuminda nan di awe. Tuma bo tempu i kis for di nos menu. </p>
 
             <nav class="menu-navigation">
                 <ul>
@@ -65,31 +66,40 @@
             </nav>
         </header>
 
+        <div class="menu-grid-container">
+            <div class="menu-columns">
+                <!-- Menu items will be dynamically loaded here -->
 
-        <div class="menu-columns">
-            <!-- Menu items will be dynamically loaded here -->
+                <div class="column">
+                    <h2 class="meal-category" id="order">Order</h2>
+                    <footer class="menu-contact">
+                        <div class="footer-cols">
+                            <div class="footer col">
+                                <h3>Order</h3>
+                                <a href="tel:+59995208561">+5999 5208561</a>
+                            </div>
+                            <div class="footer col">
+                                <h3>Adress</h3>
+                                <p class="adress">Velt Willembrodus</p>
+                                <p class="hour">Pa 9or te ku 5or</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
 
-            <div  class="column">
-                <h2 class="meal-category" id="order">Order</h2>
-                <footer class="menu-contact">
-                    <div class="footer-cols">
-                        <div class="footer col">
-                            <h3>Order</h3>
-                            <a href="tel:+59995208561">+5999 5208561</a>
-                        </div>
-                        <div class="footer col">
-                            <h3>Adress</h3>
-                            <p class="adress">Velt Willembrodus</p>
-                            <p class="hour">Pa 9or te ku 5or</p>
-                        </div>
-                    </div>
-                </footer>
             </div>
-
         </div>
+
 
     </section>
     <script src="./dist/main.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('./src/sw.js')
+                .then((reg) => console.log('Service worker registered', reg))
+                .catch((err)=> console.log('Service worker not registered', err))
+        }
+    </script>
 </body>
 </html>

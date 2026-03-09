@@ -1,0 +1,64 @@
+
+const CORE_CACHE_NAME = 'cache-v2';
+const DYNAMIC_CACHE_NAME ='dynamic-cache-v2';
+const CORE_ASSETS = [
+    '/',
+    '/offline',
+    'static/css/style.css',
+    'https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap',
+    'dist/main.js',
+];
+
+// install service worker
+self.addEventListener('install', event => {
+    console.log('service worker has been installed');
+    event.waitUntil(
+        caches.open(CORE_CACHE_NAME)
+            .then(cache =>cache.addAll(CORE_ASSETS))
+            .then(() => self.skipWaiting())
+    );
+
+
+});
+
+//activate service worker
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys()
+            .then(cacheNames => {
+                return Promise.all(
+                    cacheNames.map(cacheName => {
+                        if (cacheName !== CORE_CACHE_NAME && cacheName !== DYNAMIC_CACHE_NAME) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                )
+            })
+    )
+})
+//fetch event
+
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request).then(cacheRes =>{
+            return cacheRes || fetch(event.request)
+                .then(fetchRes => {
+                    return caches.open(DYNAMIC_CACHE_NAME)
+                        .then(cache => {
+                            cache.put(event.request.url, fetchRes.clone());
+                            return fetchRes;
+
+                        })
+                });
+        }).catch(() =>{
+            if (event.request.headers.get('accept').includes('text/html')) {
+                return caches.match('/offline')
+            }
+
+        })
+    );
+
+
+    console.log('fetch event', event);
+});
