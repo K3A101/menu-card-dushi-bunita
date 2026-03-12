@@ -105,7 +105,9 @@ body {
                         justify-content: space-between;
                         align-items: start;
                         gap: 1.6rem;
-                        
+                        border-bottom: .1rem solid var(--line);
+                        padding-bottom: 1.6rem;
+
                         @container meals (min-width: 280px) {
                             gap: .5rem;
                             flex-direction: row;
@@ -148,18 +150,10 @@ body {
                             border-radius: .5rem;
                             padding: .5rem;
                             font-size: 1.2rem;
-                            
-                            @container meals (min-width: 280px) {
-                                padding: 1rem;
-                            }
-                            
-                            @container meals (min-width: 315px) {
-                                padding: 1rem;
-                                .amount,
-                                .currency {
-                                    font-size: 1.4rem;
-                                }
-                            }
+                        }
+
+                        &:last-child {
+                            border: 0;
                         }
                     }
                 }
